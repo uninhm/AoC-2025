@@ -69,4 +69,4 @@ next :: Parser a -> Parser a
 next p = p <|> (anyChar *> next p)
 
 sepBy :: Parser a -> Parser b -> Parser [a]
-p `sepBy` q = (:) <$> p <*> some (q *> p)
+p `sepBy` q = (:) <$> p <*> many (q *> p)
